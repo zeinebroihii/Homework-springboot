@@ -26,4 +26,7 @@ public class Foyer implements Serializable {
     @JsonIgnore
     private Universite Universite;
 
- }
+    public void setId(Integer id) {
+
+    }
+}
