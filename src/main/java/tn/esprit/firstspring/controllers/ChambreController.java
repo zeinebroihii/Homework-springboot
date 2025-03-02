@@ -16,7 +16,7 @@ public class ChambreController {
     public List<Chambre> retrieveAllChambres() {
         return chambreService.retrieveAllChambres();
     }
-
+//modif
 
     @GetMapping("/getById/{id}")
     public Chambre retrieveChambre(@PathVariable("id") long idChambre) {
