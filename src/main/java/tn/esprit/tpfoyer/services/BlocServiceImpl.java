@@ -1,9 +1,9 @@
-package tn.esprit.firstspring.services;
+package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspring.entities.Bloc;
-import tn.esprit.firstspring.repositories.IBlocRepository;
+import tn.esprit.tpfoyer.entities.Bloc;
+import tn.esprit.tpfoyer.repositories.IBlocRepository;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class BlocServiceImpl implements IBlocServices {
 
     @Override
     public Bloc updateBloc(Bloc bloc) {
-        if (iBlocRepository.existsById((long) bloc.getIdBloc())) {
+        if (iBlocRepository.existsById(bloc.getIdBloc())) {
             return iBlocRepository.save(bloc);
         }
         return null;

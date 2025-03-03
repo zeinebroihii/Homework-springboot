@@ -1,9 +1,9 @@
-package tn.esprit.firstspring.services;
+package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspring.entities.Etudiant;
-import tn.esprit.firstspring.repositories.IEtudiantRepository;
+import tn.esprit.tpfoyer.entities.Etudiant;
+import tn.esprit.tpfoyer.repositories.IEtudiantRepository;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class EtudiantServiceImpl implements  IEtudiantServices {
 
     @Override
     public Etudiant updateEtudiant(Etudiant e) {
-        if (iEtudiantRepository.existsById((long) e.getIdEtudiant())) {
+        if (iEtudiantRepository.existsById(e.getIdEtudiant())) {
             return iEtudiantRepository.save(e);
         }
         return null;

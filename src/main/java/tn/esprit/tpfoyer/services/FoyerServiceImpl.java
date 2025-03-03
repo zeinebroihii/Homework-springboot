@@ -1,10 +1,11 @@
-package tn.esprit.firstspring.services;
+package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspring.entities.Foyer;
-import tn.esprit.firstspring.repositories.IChambreReposirtory;
-import tn.esprit.firstspring.repositories.IFoyerRepository;
+import tn.esprit.tpfoyer.entities.Foyer;
+import tn.esprit.tpfoyer.repositories.IChambreReposirtory;
+import tn.esprit.tpfoyer.repositories.IFoyerRepository;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class FoyerServiceImpl implements IFoyerServices {
     IChambreReposirtory chambreReposirtory;
     @Override
     public Foyer findById(long id) {
-        return foyerRepository.findById((int) id).orElse(null);
+        return foyerRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class FoyerServiceImpl implements IFoyerServices {
 
     @Override
     public void delete(Long id) {
-        foyerRepository.deleteById(Math.toIntExact(id));
+        foyerRepository.deleteById(id);
     }
 
     @Override
@@ -53,7 +54,7 @@ public class FoyerServiceImpl implements IFoyerServices {
 
     @Override
     public Foyer updateFoyer(Foyer f) {
-        if (foyerRepository.existsById((int) f.getIdFoyer())) {
+        if (foyerRepository.existsById(f.getIdFoyer())) {
             return foyerRepository.save(f);
         }
         return null;
@@ -61,13 +62,13 @@ public class FoyerServiceImpl implements IFoyerServices {
 
     @Override
     public Foyer retrieveFoyer(long idFoyer) {
-        return foyerRepository.findById((int) idFoyer).orElse(null);
+        return foyerRepository.findById(idFoyer).orElse(null);
     }
 
     @Override
     public void removeFoyer(long idFoyer) {
 
-        foyerRepository.deleteById((int) idFoyer);
+        foyerRepository.deleteById(idFoyer);
     }
 
 }

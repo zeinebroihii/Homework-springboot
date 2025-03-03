@@ -1,8 +1,8 @@
-package tn.esprit.firstspring.services;
+package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspring.entities.Chambre;
-import tn.esprit.firstspring.repositories.IChambreReposirtory;
+import tn.esprit.tpfoyer.entities.Chambre;
+import tn.esprit.tpfoyer.repositories.IChambreReposirtory;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class ChambreServiceImpl implements IChambreServices {
 
     @Override
     public Chambre updateChambre(Chambre c) {
-        if (chambreReposirtory.existsById((long) c.getIdChambre())) {
+        if (chambreReposirtory.existsById(c.getIdChambre())) {
             return chambreReposirtory.save(c);
         }
         return null;

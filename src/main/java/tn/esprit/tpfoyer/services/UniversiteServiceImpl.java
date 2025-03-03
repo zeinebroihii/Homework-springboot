@@ -1,8 +1,8 @@
-package tn.esprit.firstspring.services;
+package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.firstspring.entities.*;
-import tn.esprit.firstspring.repositories.IUniversiteRepository;
+import tn.esprit.tpfoyer.entities.*;
+import tn.esprit.tpfoyer.repositories.IUniversiteRepository;
 import java.util.List;
 
 @Service
@@ -22,10 +22,10 @@ public class UniversiteServiceImpl implements IUniversiteServices {
 
     @Override
     public Universite updateUniversite(Universite u) {
-        //if (universiteRepository.existsById((long) u.getIdUnivmysersite())) {
+        if (universiteRepository.existsById(u.getIdUniversite())) {
             return universiteRepository.save(u);
-        //}
-        //return null;
+        }
+        return null;
     }
 
     @Override
